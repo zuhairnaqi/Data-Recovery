@@ -1,0 +1,234 @@
+/* Button With Dropdown For All Screens */
+
+
+@dropdown-bg: #FFFFFF;
+@dropdown-divider-bg: #E0E0E0;
+
+.dropdown-menu {
+  background-color: @dropdown-bg;
+  border: none;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, .2);
+  margin-top: 2px;
+  
+  .divider {
+    background-color: @dropdown-divider-bg;
+  }
+}
+
+/**
+ * Buttons
+ */
+
+@btn-padding-lr: 1.2em;
+
+.btn {
+  border: 1px solid rgba(0,0,0,0);
+  border-radius: 2px;
+  box-shadow: 0 1px 5px rgba(0,0,0,.4);
+  padding-left: @btn-padding-lr;
+  padding-right: @btn-padding-lr;
+  
+  &:hover, &:focus, &:active, &:active &:focus {
+    border: 1px solid rgba(0,0,0,0);
+    outline: none !important;
+  }
+}
+
+.btn-flat-style(@color, @hover-color) {
+  background-color: inherit;
+  box-shadow: none;
+  color: @color;
+  font-weight: bold;
+  &:hover {
+    color: @color;
+    background-color: @hover-color;
+  }
+  &:focus {
+    color: @color;
+  }
+}
+
+@btn-hover-percent: 2.5%;
+.btn-style(@bg-color) {
+  background-color: @bg-color;
+  
+  &:hover {
+    background-color: darken(@bg-color, @btn-hover-percent);
+  }
+  
+  &:focus {
+    background-color: @bg-color;
+  }
+}
+
+@btn-default-color: #FFFFFF;
+.btn-default {
+  .btn-style(@btn-default-color);
+}
+.btn-flat-default {
+  .btn-flat-style(#000, lighten(#000, 90%));
+}
+
+@btn-primary-color: #2196F3;
+.btn-primary {
+  .btn-style(@btn-primary-color);
+}
+.btn-flat-primary {
+  .btn-flat-style(@btn-primary-color, lighten(@btn-primary-color, 40%));
+}
+
+@btn-success-color: #4CAF50;
+.btn-success {
+  .btn-style(@btn-success-color);
+}
+.btn-flat-success {
+  .btn-flat-style(@btn-success-color, lighten(@btn-success-color, 40%));
+}
+
+@btn-info-color: #00BCD4;
+.btn-info {
+  .btn-style(@btn-info-color);
+}
+.btn-flat-info {
+  .btn-flat-style(@btn-info-color,  lighten(@btn-info-color, 50%));
+}
+
+@btn-warning-color: #FF9800;
+bt-warning {
+  .btn-style(@btn-warning-color);
+}
+.btn-flat-warning {
+  .btn-flat-style(@btn-warning-color,  lighten(@btn-warning-color, 40%));
+}
+
+@btn-danger-color: #F44336;
+.btn-danger {
+  .btn-style(@btn-danger-color);
+}
+.btn-flat-danger {
+  .btn-flat-style(@btn-danger-color,  lighten(@btn-danger-color, 35%));
+}
+
+.btn-link {
+  box-shadow: none;
+}
+
+/* In Dashboard */
+#dashborad{
+    position: relative;
+}
+.dash-action-button{
+    position: absolute;
+    top: 15%;
+    right: 3%;
+}
+/* In Buyer */
+#purchases{
+    position: relative;
+}
+.buyer-action-button{
+   position: absolute;
+    top: 16%;
+    right: 1.4%;
+}
+/* In Supplier */
+#daily_weight{
+    position: relative;
+}
+.supplier-action-button{
+    position: absolute;
+    top: 15%;
+    right: 1.4%;
+}
+/* In Ladaan */
+#exit_entires{
+    position: relative;
+}
+.ladaan-action-button{
+  position: absolute;
+    top: 15%;
+    right: 1.4%;
+}
+/* In Inventory */
+#inventory_entires{
+    position: relative;
+}
+.inventory-action-button{
+  position: absolute;
+    top: 15%;
+    right: 1.4%;
+}
+/* In Expense */
+#expenses_entires{
+    position: relative;
+}
+.expense-action-button{
+  position: absolute;
+    top: 15%;
+    right: 1.4%;
+}
+/* In Expense */
+#Difference_entires{
+    position: relative;
+}
+.teep-action-button{
+  position: absolute;
+    top: 15%;
+    right: 1.4%;
+}
+/* In Arrival */
+#Arrival_entires{
+    position: relative;
+}
+.arrival-action-button{
+  position: absolute;
+    top: 15%;
+    right: 1.4%;
+}
+/* In Banking */
+#Banking_entires{
+    position: relative;
+}
+.banking-action-button{
+  position: absolute;
+    top: 15%;
+    right: 1.4%;
+}
+/* In Taxation */
+#taxation_tab{
+    position: relative;
+}
+.tax-action-button{
+  position: absolute;
+    top: 15%;
+    right: 2.4%;
+}
+/* In Taxation */
+#Budget_entires{
+    position: relative;
+}
+.budget-action-button{
+  position: absolute;
+    top: 15%;
+    right: 1.4%;
+}
+/* In Rankings */
+#Ranking_entires{
+    position: relative;
+}
+.ranking-action-button{
+  position: absolute;
+    top: 15%;
+    right: 1.4%;
+}
+/* In Report */
+#report_tab{
+    position: relative;
+}
+.report-action-button{
+  position: absolute;
+    top: 15%;
+    right: 2.4%;
+}
+
+/* Button With Dropdown For All Screens End */

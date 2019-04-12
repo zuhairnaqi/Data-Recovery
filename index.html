@@ -1,0 +1,2723 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>DataRecorder</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- All css here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/popupcss.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/sunny/jquery-ui.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!--Overlay-->
+    <div id="overlay"></div>
+    <!--End Overlay-->
+
+    <!--Print Previewer Popup-->
+    <div id="print_previewer_popup" class="print_previewer_popup">
+        <div class="top_close_button">
+            <a class="close_print_previewer_popup" onmousedown="close_print_previewer_popup();" href="#"><i
+                    class="fas fa-times"></i></a>
+        </div>
+        <div class="print_previewer_content">
+            <h3 style="font-size: 20px;font-weight: 500;">Print Preview</h3>
+            <p>To print,right-click the preview and select <b>Print</b>. Or,click the <b>Print</b> icon if you see one
+                below</p>
+            <div class="print_box" style="position: relative;">
+                <embed id="pdf_preview_box">
+            </div>
+
+            <hr class="print_box_bottom_line">
+            <div class="print_buttons">
+                <a class="close_print_previewer_popup" onmousedown="close_print_previewer_popup();" href="#">Cancel</a>
+                <div class="print_button">
+                    <a id="print" class="printer_button" href="#">Print</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--End Print Previewer Popup-->
+
+
+    <!--New Account PopUP-->
+    <div id="popup_new_account" class="new_account_popup">
+        <h4>Purchase Entry</h4>
+        <div class="entry_details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+
+                        <div class="rate_details_left">
+                            <h4 class="ml-m-51">New Account Details</h4>
+                        </div>
+                        <p style="margin-left: -32px;margin-top: -24px;">This will create a new account for the supplier
+                        </p>
+
+                        <div class="single_input">
+                            <label>Entry Tx.</label>
+                            <input type="text" id="nentrytx" placeholder="Enter Transaction no." value="#INV334">
+                        </div>
+
+                        <div class="account_form_input">
+                            <div class="single_input">
+                                <label>Grower</label>
+                                <input type="text" id="ngrower" placeholder="Enter Name" value="">
+                            </div>
+
+                            <div class="single_input">
+                                <label><b>Dalaal(Agent)</b></label>
+                                <input type="text" id="nagent" placeholder="Enter Name" value="">
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4">
+
+                        <div class="single_input" style="margin-left: -44px; margin-top: 69px;">
+                            <label>Type</label>
+                            <div class="select">
+                                <select id="ntype">
+                                    <option value="Hookha">Hookha</option>
+                                    <option value="Tool">Tool</option>
+                                </select>
+                            </div>
+
+                            <div class="single_input">
+                                <label>Purchase Date</label>
+                                <div>
+                                    <input type="date" id="npdate" value="2018-07-22">
+                                </div>
+                            </div>
+
+                            <div class="single_input">
+                                <label>Village</label>
+                                <input type="text" id="nvillage" placeholder="Enter village" value="">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4" style="margin-left:-44px; margin-top: 92px;">
+                        <div class="single_input">
+                            <label>Area</label>
+                            <div class="select">
+                                <select id="narea">
+                                    <option value="ABOHAR">ABOHAR</option>
+                                    <option value="GANGANAGAR">GANGANAGAR</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="single_input">
+                            <label>Last Date</label>
+                            <div>
+                                <input id="nldate" type="date" value="2018-07-22">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rate_details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="rate_details_left">
+                            <h4 class="ml-m-51">Rate Details</h4>
+                            <div class="single_input">
+                                <label>Hookha Amount</label>
+                                <input type="text" id="nhamount" placeholder="Enter amount" value="">
+                            </div>
+                            <div class="single_input">
+                                <label>Tool (Rate/kg)</label>
+                                <input type="text" id="ntool" placeholder="Enter Amount" value="">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="rate_details_right" style="margin-top: 67px;">
+
+                            <div class="single_input">
+                                <label>Advance Paid</label>
+                                <input type="text" id="napaid" placeholder="Enter Amount" value="">
+                            </div>
+
+                            <div class="single_input">
+                                <label>Estimated Wgt (KG's)</label>
+                                <input type="text" id="neweight" placeholder="Enter Amount" value="">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <button type="button" onclick="close_button_popup('#popup_new_account')"
+                style="float: left;margin-right: 0px;margin-top: 0%;">Cancel</button>
+        </div>
+
+        <div class="container">
+            <button type="button" onclick="newinput()"
+                style="float: right;margin-right: 24px;margin-top: 0%;">Submit</button>
+        </div>
+
+
+        <div class="file-upload" style="float: right;margin-right: -121px;margin-top: -52%;">
+            <label for="upload" class="file-upload__label">Attach Copy of Negotiation</label>
+            <input id="upload" class="file-upload__input" type="file" name="file-upload">
+        </div>
+
+
+
+    </div>
+    <!--End Account PopUP-->
+
+    <!--INPUT Popup-->
+    <div id="input_popup" class="input_popup ">
+        <div class="entry_details_left">
+            <h4>Input Entry (Enter)</h4>
+            <div class="single_input">
+                <label>Entry Tx.</label>
+                <input type="text" id="ientrytx" placeholder="Enter Name" value="#E334">
+            </div>
+
+            <div class="single_input">
+                <label>Date</label>
+                <div class="select cal">
+                    <input type="date" id="idate" value="2018-07-22">
+                </div>
+
+            </div>
+            <div class="single_input">
+                <label>Grower</label>
+                <input type="text" id="igrower" placeholder="Enter Name" value="">
+            </div>
+
+            <div class="single_input">
+                <label>Area/Village</label>
+                <input type="text" id="iarea" placeholder="Enter Name" value="">
+            </div>
+
+            <div class="single_input">
+                <label>Crates (Units)</label>
+                <input type="number" id="icrate" placeholder="Enter number of crates" value="">
+            </div>
+
+            <div class="single_input">
+                <label>Goods Entry Weight</label>
+                <input type="number" id="ientryweight" placeholder="Enter Weight" value="">
+                <div class="select">
+                    <select id="slct">
+                        <option>KG</option>
+                    </select>
+                </div>
+            </div>
+            <div class="single_input">
+            </div>
+
+            <div class="container">
+                <button type="button" onclick="inputentry()"
+                    style="float: right;margin-right: 24px;margin-top: 0%;">Submit</button>
+            </div>
+
+            <div class="container">
+                <button type="button" onclick="close_button_popup('#input_popup')"
+                    style="float: left;margin-left: -13px;margin-top: 0%;">Cancel</button>
+            </div>
+
+
+        </div>
+        <div class="entry_details_right">
+            <div class="add_picture">
+                <ul>
+                    <li><a href="#">Attach Weight Reciept</a></li>
+                </ul>
+
+
+                <div class="thumbnail">
+                    <div class="view-img">
+                        <img src="img/bill.png" alt="placeholder+image"
+                            style="width: 71%;margin-left: 53px;margin-top: 43px;margin-bottom: 82px;opacity: 0.4;">
+                    </div>
+                    <input type="file" id="input-attachment-upload">
+                    <button type="button" class="btn uploadbtn"><span>Upload Image</span></button>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <!--end INPUT Popup-->
+
+
+    <!--BILL Popup-->
+    <div id="bill_popup" class="bill_popup ">
+        <div class="entry_details_left">
+            <h4>Add Bill</h4>
+            <div class="single_input">
+                <label>Entry Tx.</label>
+                <input type="text" id="bentrytx" placeholder="Enter Name" value="#E334">
+            </div>
+
+            <div class="single_input">
+                <label>Date</label>
+                <div class="select cal">
+                    <input type="date" id="bdate" value="2018-07-22">
+                </div>
+
+            </div>
+
+            <div class="single_input">
+                <label>Expense Type</label>
+                <input type="text" id="bgrower" placeholder="Enter Name" value="">
+            </div>
+
+            <div class="single_input">
+                <label>Expense Amount</label>
+                <input type="text" id="bexpenseamount" placeholder="Enter Name" value="">
+            </div>
+
+
+            <div class="single_input">
+                <label>Party (Optional)</label>
+                <input type="text" id="bparty" placeholder="Enter Name" value="">
+            </div>
+
+            <div class="single_input">
+                <label>Labour Count</label>
+                <input type="text" id="blabour" placeholder="Enter Name" value="">
+            </div>
+
+            <div class="single_input">
+                <label>Description</label>
+                <input type="text" id="bdescription" placeholder="Enter number of crates" value="">
+            </div>
+
+
+            <div class="container">
+                <button type="button" onclick="billentry()"
+                    style="float: right;margin-right: 24px;margin-top: 0%;">Submit</button>
+            </div>
+
+            <div class="container">
+                <button type="button" onclick="close_button_popup('#bill_popup')"
+                    style="float: left;margin-left: -13px;margin-top: 0%;">Cancel</button>
+            </div>
+
+
+        </div>
+        <div class="entry_details_right">
+            <div class="add_picture">
+                <ul>
+                    <li><a href="#">Attach Bill/Reciept</a></li>
+                </ul>
+
+
+                <div class="thumbnail">
+                    <div class="view-img">
+                        <img src="img/bill.png" alt="placeholder+image"
+                            style="width: 71%;margin-left: 53px;margin-top: 43px;margin-bottom: 82px;opacity: 0.4;">
+                    </div>
+                    <input type="file" id="bill-reciept-upload">
+                    <button type="button" class="btn uploadbtn"><span>Upload Image</span></button>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <!--end BILL Popup-->
+
+    <!--transaction Details Popup-->
+    <div id="transaction_popup">
+        <div class="transaction_title">
+            <h4>Output Reciept</h4>
+            <div class="close_btn">
+                <a class="transaction_popup_close" onmousedown="transaction_popup_close();" href="#"><i
+                        class="fas fa-times"></i></a>
+            </div>
+        </div>
+
+
+
+        <div style="margin-bottom: 10px;padding-bottom: 21px;border-bottom: 1px solid #c7c7c7;">
+            <div class="dashboard_information" style="margin-left: -9px;margin-top: -10px;margin-bottom: 33px;">
+                <img src="img/dashboard.png" id="ologourl" alt="profile">
+                <div class="company_info" style="margin-top: 7px;">
+                    <h4 id="ocompanyname">Company Name</h4>
+                    <h6 id="ocompanyaddress">Address of the company here</h6>
+                </div>
+            </div>
+
+            <div class="transaction_content">
+                <h4>Invoice: <b>#222</b></h4>
+                <h4>TrucK no: <b>HPOSP2210</b></h4>
+                <h4>Party Name: <b>JohnDoe</b></h4>
+                <h4>Driver Phone: <b>9876543210</b></h4>
+                <h4>Total Unit: <b>400</b></h4>
+                <h4>Net Weight(kg): <b>10000</b></h4>
+            </div>
+            <table class="transaction_table">
+                <tbody>
+                    <tr>
+                        <th>TYPE</th>
+                        <th>M Crate</th>
+                        <th>A Crate</th>
+                        <th>B Crate</th>
+                        <th>A Box</th>
+                        <th>B Box</th>
+                        <th>LOOSE(kg)</th>
+                        <th>Total</th>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>Units</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>1</td>
+                        <td>60</td>
+                    </tr>
+                    <tr style="background: #e4e4e4;">
+                        <td>Total Weight</td>
+                        <td>240</td>
+                        <td>240</td>
+                        <td>240</td>
+                        <td>240</td>
+                        <td>240</td>
+                        <td>5600</td>
+                        <td>6800</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid">
+                        <td>RATE [ ₹/kg ]</td>
+                        <td>₹ 12</td>
+                        <td>₹ 14</td>
+                        <td>₹ 15</td>
+                        <td>₹ 11</td>
+                        <td>₹ 10</td>
+                        <td>₹ 4</td>
+                        <td></td>
+                    </tr>
+                    <tr style="background: #737373;color: #fff;">
+                        <td>Total Amt ₹</td>
+                        <td>2800</td>
+                        <td>3360</td>
+                        <td>3600</td>
+                        <td>2640</td>
+                        <td>2400</td>
+                        <td>22400</td>
+                        <td>37200</td>
+                    </tr>
+                    <tr>
+                        <td th colspan="7" style="text-align: right;border: none;">- Freight</td>
+                        <td>₹ 12</td>
+                    </tr>
+                    <tr>
+                        <td th colspan="7" style="text-align: right;border: none;">- Material</td>
+                        <td>₹ 12</td>
+                    </tr>
+                    <tr>
+                        <td th colspan="7" style="text-align: right;border: none;">- Driver Advance</td>
+                        <td>₹ 12</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid">
+                        <td th colspan="7" style="text-align: right;border: none;">- Amount Prepaid</td>
+                        <td>₹ 12</td>
+                    </tr>
+                    <tr style="background: #737373;color: #fff;">
+                        <td th colspan="7" style="text-align: right;border: none;font-weight:600;">NET TOTAL</td>
+                        <td style="font-weight:600;">₹ 80000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <button type="button" onclick="window.print();"
+            style="float: right;margin-left: -3px;margin-top: 2%;background: green;">Print</button>
+        <button type="button" style="float: right;margin-left: -3px;margin-top: 2%;">Edit</button>
+        <button type="button" style="float: right;margin-left: -3px;margin-top: 2%;background: maroon;">Delete</button>
+        <button type="button" onclick="close_button_popup('#transaction_popup')"
+            style="float: left;margin-left: -3px;margin-top: 2%;background: dimgrey;">Cancel</button>
+
+    </div>
+    <!--End transaction Details Popup-->
+
+
+    <!--Start of INPUT Transaction Details Popup-->
+    <div id="input_transaction_popup">
+        <div class="input_transaction_title">
+            <h4>Input Reciept</h4>
+            <div class="input_close_btn">
+                <a class="input_transaction_popup_close" onmousedown="input_transaction_popup_close();" href="#"><i
+                        class="fas fa-times"></i></a>
+            </div>
+        </div>
+
+
+        <div style="margin-bottom: 10px;padding-bottom: 21px;border-bottom: 1px solid #c7c7c7;">
+            <div class="dashboard_information" style="margin-left: -9px;margin-top: -10px;margin-bottom: 33px;">
+                <img src="img/dashboard.png" id="ologourl" alt="profile">
+                <div class="company_info" style="margin-top: 7px;">
+                    <h4 id="ocompanyname">Company Name</h4>
+                    <h6 id="ocompanyaddress">Address of the company here</h6>
+                </div>
+            </div>
+
+
+            <div class="input_transaction_content">
+                <h4>Transaction no: <b>#E334</b></h4>
+                <h4>Date: <b>22-07-2018</b></h4>
+                <h4>Party: <b>JohnDoe</b></h4>
+                <h4>Area: <b>Abohar</b></h4>
+                <h4>Village: <b>Gidrawali</b></h4>
+                <h4>Units (Crates): <b>144</b></h4>
+                <h4>Estimated KG: <b>2034</b></h4>
+                <h4>Weight per crate: <b> 14.12</b></h4>
+            </div>
+
+        </div>
+
+        <button type="button" onclick="window.print();"
+            style="float: right;margin-left: -3px;margin-top: 2%;background: green;">Print</button>
+        <button type="button" style="float: right;margin-left: -3px;margin-top: 2%;">Edit</button>
+        <button type="button" style="float: right;margin-left: -3px;margin-top: 2%;background: maroon;">Delete</button>
+        <button type="button" style="float: right;margin-left: -3px;margin-top: 2%;background: darkgoldenrod;">View
+            Attachment</button>
+        <button type="button" onclick="close_button_popup('#input_transaction_popup')"
+            style="float: left;margin-left: -3px;margin-top: 2%;background: dimgrey;">Cancel</button>
+
+
+    </div>
+    <!--End of INPUT Details Popup-->
+
+
+    <!--Start of Purchases transaction detail popup-->
+    <div id="purchase_transaction_popup">
+        <div class="purchase_transaction_title">
+            <h4>Purchases Reciept</h4>
+            <div class="purchase_close_btn">
+                <a class="purchase_transaction_popup_close" onmousedown="purchase_transaction_popup_close();"
+                    href="#"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+
+
+        <div style="margin-bottom: 10px;padding-bottom: 21px;border-bottom: 1px solid #c7c7c7;">
+            <div class="dashboard_information" style="margin-left: -9px;margin-top: -10px;margin-bottom: 33px;">
+                <img src="img/dashboard.png" id="ologourl" alt="profile">
+                <div class="company_info" style="margin-top: 7px;">
+                    <h4 id="ocompanyname">Company Name</h4>
+                    <h6 id="ocompanyaddress">Address of the company here</h6>
+                </div>
+            </div>
+
+
+            <div class="purchase_transaction_content">
+                <h4>Transaction no: <b>#222</b></h4>
+                <h4>Type: <b>Hooka</b></h4>
+                <h4>Party:<b>JohnDoe</b></h4>
+                <h4>Mobile no:<b>9876543210</b></h4>
+                <h4>Area:<b>Abohar</b></h4>
+                <h4>Village: <b>Gidrawali</b></h4>
+                <h4>Purchase Date:<b>DD/MM/YYYY</b></h4>
+                <h4>Last Date: <b>DD/MM/YYYY</b></h4>
+                <h4>Booking Amount: <b>4000</b></h4>
+                <h4>Total Hookha Amt: <b>40000</b></h4>
+                <h4>Tool Rate/kg: <b>NA</b></h4>
+                <h4>Estimated KG: <b>1000</b></h4>
+                <h4>ESTIMATED Rate/kg: <b>40</b></h4>
+                <h4>Agent: <b>Goga</b></h4>
+            </div>
+
+        </div>
+        <div>
+            <button type="button" onclick="window.print();"
+                style="float: right;margin-left: -3px;margin-top: 2%;background: green;">Print</button>
+            <button type="button" style="float: right;margin-left: -3px;margin-top: 2%;">Edit</button>
+            <button type="button"
+                style="float: right;margin-left: -3px;margin-top: 2%;background: maroon;">Delete</button>
+            <button type="button" style="float: right;margin-left: -3px;margin-top: 2%;background: darkgoldenrod;">View
+                Attachment</button>
+            <button type="button" onclick="close_button_popup('#purchase_transaction_popup')"
+                style="float: left;margin-left: -3px;margin-top: 2%;background: dimgrey;">Cancel</button>
+        </div>
+    </div>
+    <!--End of Purchases transaction Details Popup-->
+
+
+    <!--Start of BILL Transaction Details Popup-->
+    <div id="bill_transaction_popup">
+        <div class="bill_transaction_title">
+            <h4>Expenses Reciept</h4>
+            <div class="bill_close_btn">
+                <a class="bill_transaction_popup_close" onmousedown="bill_transaction_popup_close();" href="#"><i
+                        class="fas fa-times"></i></a>
+            </div>
+        </div>
+        <div class="bill_transaction_content">
+            <h4>Transaction no: <b>#222</b></h4>
+            <h4>Type: <b>Hooka</b></h4>
+            <h4>Party: <b>JohnDoe</b></h4>
+            <h4>Area: <b>Abohar</b></h4>
+            <h4>Village: <b>Gidrawali</b></h4>
+            <h4>Purchase Date: <b>DD/MM/YYYY</b></h4>
+            <h4>Last Date: <b>DD/MM/YYYY</b></h4>
+            <h4>Booking Amount: <b>4000</b></h4>
+            <h4>Estimated KG: <b>10000</b></h4>
+            <h4>Agent: <b>80000</b></h4>
+        </div>
+
+        <button type="button" onclick="window.print();"
+            style="float: right;margin-left: -3px;margin-top: 2%;background: green;">Print</button>
+        <button type="button" style="float: right;margin-left: -3px;margin-top: 2%;">Edit</button>
+        <button type="button" style="float: right;margin-left: -3px;margin-top: 2%;background: maroon;">Delete</button>
+        <button type="button" style="float: right;margin-left: -3px;margin-top: 2%;background: darkgoldenrod;">View
+            Attachment</button>
+        <button type="button" onclick="close_button_popup('#bill_transaction_popup')"
+            style="float: left;margin-left: -3px;margin-top: 2%;background: dimgrey;">Cancel</button>
+    </div>
+    <!--End of BILL Details Popup-->
+
+
+    <!--OUTPUt PopUP-->
+    <div id="output_popup" class="output_popup">
+        <h4 class="p-25">Output Entry EXIT</h4>
+        <div class="exit_details_calend">
+
+            <div class="rate_details_left">
+                <h4 class="ml-m-51" style="margin-left: 24px;margin-bottom: 12px;">Invoice Detail</h4>
+            </div>
+            <p style="margin-left: 24px;margin-top:-11px;color: #035207;">Add all the information needed on your invoice
+            </p>
+
+            <table style="display: table-cell; display: table; table-layout: fixed;">
+                <tbody>
+
+                    <tr class="exit_details_calend_tr11">
+
+
+                        <td>
+                            <div class="input">
+                                <label style="margin-left: 14px;">Exit Tx.</label>
+                                <input type="text" id="oentrytx" placeholder="Tx.no.." value="#INV334">
+                            </div>
+                        </td>
+
+
+                        <td>
+                            <div class="input">
+                                <label style="margin-left: 14px;">Exit Date</label>
+                                <input id="oedate" type="date" value="2018-07-22">
+                            </div>
+                        </td>
+
+
+
+                        <td>
+                            <div class="input">
+                                <label>Party</label>
+                                <input type="text" id="oparty">
+                            </div>
+                        </td>
+
+
+                    <tr class="exit_details_calend_tr22">
+
+                        <td>
+                            <div class="input">
+                                <label>Type</label>
+                                <div class="select">
+                                    <select id="otype">
+                                        <option value="On Order">On Order</option>
+                                        <option value="On Sale">On Sale</option>
+                                    </select>
+                                </div>
+                        </td>
+
+
+                        <td>
+                            <div class="input">
+                                <label>Truck no.</label>
+                                <input type="text" id="otruckno">
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="input">
+                                <label>Driver Phone</label>
+                                <input type="number" id="odphone">
+                            </div>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="maal_details">
+            <h4>Goods Shipment Details</h4>
+
+        </div>
+        <div class="selectQuality">
+            <div class="select_row">
+
+
+                <ul class="input_style">
+                    <li> <label>Select Quality Type</label>
+                        <div class="select">
+                            <select id="oselect1" onchange="oselect()">
+                                <option>--Select--</option>
+                                <option>M GRADE CRATE</option>
+                                <option>A GRADE CRATE</option>
+                                <option>B GRADE CRATE</option>
+                                <option>C GRADE CRATE</option>
+                                <option>A GRADE BOXES</option>
+                                <option>B GRADE BOXES</option>
+                                <option>LOOSE</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><label>Units</label>
+                        <input type="number" id="ounit1" value="0" style="margin-right: 70px;"></li>
+                    <li><label>Price per kg</label>
+                        <input type="number" id="oppk1" value="0"></li>
+                    <li><label>kg/crate</label><input id="okg1" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Weight</label><input id="oweight1" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Amount</label><input id="oamount1" class="bg_gray" type="number" value="0"></li>
+                </ul>
+
+                <ul class="input_style">
+                    <li> <label>Select Quality Type</label>
+                        <div class="select">
+                            <select id="oselect2" onchange="oselect()">
+                                <option>--Select--</option>
+                                <option>M GRADE CRATE</option>
+                                <option>A GRADE CRATE</option>
+                                <option>B GRADE CRATE</option>
+                                <option>C GRADE CRATE</option>
+                                <option>A GRADE BOXES</option>
+                                <option>B GRADE BOXES</option>
+                                <option>LOOSE</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><label>Units</label>
+                        <input type="number" id="ounit2" value="0" style="margin-right: 70px;"></li>
+                    <li><label>Price per kg</label>
+                        <input type="number" id="oppk2" value="0"></li>
+                    <li><label>kg/crate</label><input id="okg2" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Weight</label><input id="oweight2" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Amount</label><input id="oamount2" class="bg_gray" type="number" value="0"></li>
+                </ul>
+
+                <ul class="input_style">
+                    <li> <label>Select Quality Type</label>
+                        <div class="select">
+                            <select id="oselect3" onchange="oselect()">
+                                <option>--Select--</option>
+                                <option>M GRADE CRATE</option>
+                                <option>A GRADE CRATE</option>
+                                <option>B GRADE CRATE</option>
+                                <option>C GRADE CRATE</option>
+                                <option>A GRADE BOXES</option>
+                                <option>B GRADE BOXES</option>
+                                <option>LOOSE</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><label>Units</label>
+                        <input type="number" id="ounit3" value="0" style="margin-right: 70px;"></li>
+                    <li><label>Price per kg</label>
+                        <input type="number" id="oppk3" value="0"></li>
+                    <li><label>kg/crate</label><input id="okg3" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Weight</label><input id="oweight3" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Amount</label><input id="oamount3" class="bg_gray" type="number" value="0"></li>
+                </ul>
+
+                <ul class="input_style">
+                    <li> <label>Select Quality Type</label>
+                        <div class="select">
+                            <select id="oselect4" onchange="oselect()">
+                                <option>--Select--</option>
+                                <option>M GRADE CRATE</option>
+                                <option>A GRADE CRATE</option>
+                                <option>B GRADE CRATE</option>
+                                <option>C GRADE CRATE</option>
+                                <option>A GRADE BOXES</option>
+                                <option>B GRADE BOXES</option>
+                                <option>LOOSE</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><label>Units</label>
+                        <input type="number" id="ounit4" value="0" style="margin-right: 70px;"></li>
+                    <li><label>Price per kg</label>
+                        <input type="number" id="oppk4" value="0"></li>
+                    <li><label>kg/crate</label><input id="okg4" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Weight</label><input id="oweight4" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Amount</label><input id="oamount4" class="bg_gray" type="number" value="0"></li>
+                </ul>
+
+                <ul class="input_style">
+                    <li> <label>Select Quality Type</label>
+                        <div class="select">
+                            <select id="oselect5" onchange="oselect()">
+                                <option>--Select--</option>
+                                <option>M GRADE CRATE</option>
+                                <option>A GRADE CRATE</option>
+                                <option>B GRADE CRATE</option>
+                                <option>C GRADE CRATE</option>
+                                <option>A GRADE BOXES</option>
+                                <option>B GRADE BOXES</option>
+                                <option>LOOSE</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><label>Units</label>
+                        <input type="number" id="ounit5" value="0" style="margin-right: 70px;"></li>
+                    <li><label>Price per kg</label>
+                        <input type="number" id="oppk" value="0"></li>
+                    <li><label>kg/crate</label><input id="okg5" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Weight</label><input id="oweight5" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Amount</label><input id="oamount5" class="bg_gray" type="number" value="0"></li>
+                </ul>
+
+                <ul class="input_style">
+                    <li> <label>Select Quality Type</label>
+                        <div class="select">
+                            <select id="oselect6" onchange="oselect()">
+                                <option>--Select--</option>
+                                <option>M GRADE CRATE</option>
+                                <option>A GRADE CRATE</option>
+                                <option>B GRADE CRATE</option>
+                                <option>C GRADE CRATE</option>
+                                <option>A GRADE BOXES</option>
+                                <option>B GRADE BOXES</option>
+                                <option>LOOSE</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><label>Units</label>
+                        <input type="number" id="ounit6" value="0" style="margin-right: 70px;"></li>
+                    <li><label>Price per kg</label>
+                        <input type="number" id="oppk6" value="0"></li>
+                    <li><label>kg/crate</label><input id="okg6" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Weight</label><input id="oweight6" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Amount</label><input id="oamount6" class="bg_gray" type="number" value="0"></li>
+                </ul>
+
+                <ul class="input_style">
+                    <li> <label>Select Quality Type</label>
+                        <div class="select">
+                            <select id="oselect7" onchange="oselect()">
+                                <option>--Select--</option>
+                                <option>M GRADE CRATE</option>
+                                <option>A GRADE CRATE</option>
+                                <option>B GRADE CRATE</option>
+                                <option>C GRADE CRATE</option>
+                                <option>A GRADE BOXES</option>
+                                <option>B GRADE BOXES</option>
+                                <option>LOOSE</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li><label>Units</label>
+                        <input type="number" id="ounit7" value="0" style="margin-right: 70px;"></li>
+                    <li><label>Price per kg</label>
+                        <input type="number" id="oppk7" value="0"></li>
+                    <li><label>kg/crate</label><input id="okg7" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Weight</label><input id="oweight7" class="bg_gray" type="number" value="0"></li>
+                    <li><label>Amount</label><input id="oamount7" class="bg_gray" type="number" value="0"></li>
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="total_units">
+            <h4 id="ototalunit">Total Units : 400 Units</h4>
+            <div class="grand_total">
+                <label>Grand Total :</label>
+                <input id="ototal1" type="text">
+                <input id="ototal2" type="text">
+            </div>
+        </div>
+        <div class="note_final_section">
+            <div class="note">
+                <h5>Note :</h5>
+                <textarea class="note_textarea" id="onotes"></textarea>
+            </div>
+            <div class="note_final_right">
+                <li><label>Freight :</label>
+                    <input type="number" id="ofreight"></li>
+                <li><label>Material :</label>
+                    <input type="number" id="omaterial"></li>
+                <li><label>Crates :</label>
+                    <input type="number" id="ocrate"></li>
+                <li><label>Driver Advance :</label>
+                    <input type="number" id="odad"></li>
+                <li><label>Amount Pre-paid :</label>
+                    <input type="number" id="oaprepaid"></li>
+                <li><label>Total :</label>
+                    <input type="number" id="ototal"></li>
+
+            </div>
+        </div>
+
+        <div class="out_report_buttons">
+            <div class="left_button">
+                <a onclick="close_button_popup('#output_popup')" href="#" style="background: dimgrey;">Cancel</a>
+            </div>
+            <div class="right_buttons">
+                <a onclick="window.print();" href="#">Print</a>
+                <a style="    background: #4CAF50;color: #fff;" onclick="outputentry()">Save</a>
+            </div>
+        </div>
+
+    </div>
+    <!--End OUTPUt PopUP-->
+    <!--Search Popup-->
+    <div id="search_popup">
+        <div class="search_header">
+            <h5>Account Ledger Search</h5>
+            <ul class="control_button">
+                <li><a class="search_close_btn" onmousedown="search_close_btns();" href="#"><i
+                            class="fas fa-times"></i></a></li>
+            </ul>
+        </div>
+        <div class="search_main_box">
+            <div class="search_title">
+
+            </div>
+            <div class="search_system">
+                <div class="toggle_button">
+                    <div>
+                        <a class="dropdown search dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            All
+                        </a>
+                        <div class="dropdown-menu search" aria-labelledby="dropdownMenuButton">
+                            <a class=" dropdown-item">All</a>
+                            <a class=" dropdown-item">Buyers</a>
+                            <a class=" dropdown-item">Suppliers</a>
+                            <a class="dropdown-item">Other Ledgers</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="search_system_input">
+                    <input type="text" placeholder="Search profile title..">
+                </div>
+
+                <div class="go_button">
+                    <a type="button" class="btn" href="" style="margin-right: 16px;background: darkgreen;">+ Add
+                        User</a>
+                </div>
+
+                <div class="go_button">
+                    <a type="button" class="btn" href="">SEARCH</a>
+                </div>
+
+            </div>
+            <table class="search_table">
+                <tbody>
+                    <tr>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>sub.categ.</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Company</th>
+                        <th style="width: 7%;">Action</th>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>SSA</td>
+                        <td>Buyer</td>
+                        <td>Regular</td>
+                        <td>Suresh</td>
+                        <td></td>
+                        <td>SAI(Shri Sai Fruit)</td>
+                        <td>
+                            <div class="view_button">
+                                <a id="accout_popup_open" onmousedown="accout_popup_open();"><b>VIEW</b></a>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>SAI Partners</td>
+                        <td>Buyer</td>
+                        <td>Ladaan</td>
+                        <td>Suresh</td>
+                        <td></td>
+                        <td>SAI(Shri Sai Fruit)</td>
+                        <td>
+                            <div class="view_button">
+                                <a id="accout_popup_open" onmousedown="accout_popup_open();"><b>VIEW</b></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>SAI Partners</td>
+                        <td>Buyer</td>
+                        <td>Ladaan</td>
+                        <td>Suresh</td>
+                        <td></td>
+                        <td>SAI(Shri Sai Fruit)</td>
+                        <td>
+                            <div class="view_button">
+                                <a id="accout_popup_open" onmousedown="accout_popup_open();"><b>VIEW</b></a>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>SAI Partners</td>
+                        <td>Buyer</td>
+                        <td>Ladaan</td>
+                        <td>Suresh</td>
+                        <td></td>
+                        <td>SAI(Shri Sai Fruit)</td>
+                        <td>
+                            <div class="view_button">
+                                <a id="accout_popup_open" onmousedown="accout_popup_open();"><b>VIEW</b></a>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>SAI Partners</td>
+                        <td>Buyer</td>
+                        <td>Ladaan</td>
+                        <td>Suresh</td>
+                        <td></td>
+                        <td>SAI(Shri Sai Fruit)</td>
+                        <td>
+                            <div class="view_button">
+                                <a id="accout_popup_open" onmousedown="accout_popup_open();"><b>VIEW</b></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>SAI Partners</td>
+                        <td>Buyer</td>
+                        <td>Ladaan</td>
+                        <td>Suresh</td>
+                        <td></td>
+                        <td>SAI(Shri Sai Fruit)</td>
+                        <td>
+                            <div class="view_button">
+                                <a id="accout_popup_open" onmousedown="accout_popup_open();"><b>VIEW</b></a>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>SAI Partners</td>
+                        <td>Buyer</td>
+                        <td>Ladaan</td>
+                        <td>Suresh</td>
+                        <td></td>
+                        <td>SAI(Shri Sai Fruit)</td>
+                        <td>
+                            <div class="view_button">
+                                <a id="accout_popup_open" onmousedown="accout_popup_open();"><b>VIEW</b></a>
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+
+
+                </tbody>
+            </table>
+
+
+
+
+        </div>
+
+    </div>
+    <!--End Search Popup-->
+    <!--Account Details PopUp-->
+    <div id="account_details" class="new_account_popup">
+        <div class="account_details_box">
+            <div class="account_details_title">
+                <h4>Account Details</h4>
+            </div>
+
+            <div class="suplier_details_box">
+                <img src="img/Profilepic.png" alt="placeholder+image">
+                <ul class="suplier_details">
+                    <li>John Doe</li>
+                    <li>Company: SKC</li>
+                    <li>Address: Gail no 5,KH,Ludiana</li>
+                    <li>Mobile :9876543210</li>
+                    <li>Mobile :9876543210</li>
+                    <li>Payment Type : B/C</li>
+                </ul>
+
+                <div class="edit_profile">
+                    <a href="#"> Edit profile</a>
+                    <div class="outstanding">
+                        <h5></h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="credit_time">
+                <h5>Outstanding Amt : 1,00,000</h5>
+            </div>
+            <hr>
+
+            <!--Print export and settings Icon Here-->
+            <div class="printer_icon">
+                <img class="print_previewer_open" onmousedown="print_previewer_popup('suplier_table');" href="#"
+                    src="img/printer.png" alt="placeholder+image">
+            </div>
+            <div class="export_icon">
+                <a onclick="genPDF('daily_weights');" href="#"><img src="img/share.png" alt="placeholder+image"> </a>
+            </div>
+            <div class="settings_icon">
+                <a onclick="" href="#"><img src="img/settings.png" alt="placeholder+image"> </a>
+            </div>
+
+            <table id="account_details_table" class="account_details_table">
+                <tbody>
+                    <tr>
+                        <th>#</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Weight</th>
+                        <th>Amount Received</th>
+                        <th>Amount Paid</th>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>DD/MM/YY</td>
+                        <th>Sales</th>
+                        <td>342kg</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>DD/MM/YY</td>
+                        <th>Paid</th>
+                        <td>342kg</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>DD/MM/YY</td>
+                        <th> Recieved</th>
+                        <td>342kg</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>DD/MM/YY</td>
+                        <th>Sales</th>
+                        <td>342kg</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>DD/MM/YY</td>
+                        <th> Recieved</th>
+                        <td>342kg</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--End Account Details PopUp-->
+
+
+
+
+    <!--Audit log Popup-->
+    <div id="audit_log_popup">
+        <div class="audit_title">
+            <h2>AUDIT LOG</h2>
+        </div>
+        <div class="card-body">
+            <table class="audit_log_table">
+                <tbody>
+                    <tr>
+                        <!--Table Header-->
+                        <th>DATE CHANGED</th>
+                        <th>USER</th>
+                        <th>EVENT</th>
+                        <th>NAME</th>
+                        <th>DATE</th>
+                        <th>AMOUNT</th>
+                        <th>HISTORY</th>
+                        <!--End Table Header-->
+                    </tr>
+                </tbody>
+                <tbody>
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Logged in</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <!--End Row-->
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Logged Out</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <!--End Row-->
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Logged in</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <!--End Row-->
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Added <span>Credit Card Expense</span></td>
+                        <td>Hicks Hardware</td>
+                        <td>01/09/2019</td>
+                        <td>$42.40</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <!--End Row-->
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Added <span>Credit Card Expense</span></td>
+                        <td>Squeaky Kleen C..</td>
+                        <td>01/15/2019</td>
+                        <td>$19.99</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <!--End Row-->
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Added <span>Credit Card Expense</span></td>
+                        <td>Squeaky Kleen C..</td>
+                        <td>01/08/2019</td>
+                        <td>$19.99</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <!--End Row-->
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Added <span>Credit Card Expense</span></td>
+                        <td>Bob's Burger Joint</td>
+                        <td>01/08/2019</td>
+                        <td>$18.97</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <!--End Row-->
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Added <span>Credit Card Credit</span></td>
+                        <td></td>
+                        <td>01/09/2019</td>
+                        <td>$900.00</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <!--End Row-->
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Added <span>Check No.Debit</span></td>
+                        <td>Squeaky Kleen C..</td>
+                        <td>01/01/2019</td>
+                        <td>$19.99</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <!--End Row-->
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Added <span>Cash Expense</span></td>
+                        <td>Bos's Burger Joint</td>
+                        <td>12/30/20118</td>
+                        <td>$3.86</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <!--End Row-->
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Added <span>Cash Expense</span></td>
+                        <td>Squeakly Kleen C..</td>
+                        <td>12/25/2018</td>
+                        <td>$19.99</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <!--End Row-->
+                    <!--Row-->
+                    <tr>
+                        <td><b>22 Jan 19</b> 11:41pm</td>
+                        <td>Crag Carlson</td>
+                        <td>Added <span>Cash Expense</span></td>
+                        <td>Bos's Burger Joint</td>
+                        <td>12/25/2018</td>
+                        <td>$5.66</td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+
+                    <tr href="#" style="cursor:pointer;">
+                        <th colspan="6" style="text-align: center;">View All Entries</th>
+                    </tr>
+                    <!--End Row-->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!--End Audit log Popup-->
+
+
+
+    <!--Header Section-->
+    <section id='header'>
+        <div class="container-wrapper">
+            <div class="header_content">
+                <h2><img src="img/logo.png" alt="logo" class="header_img"></h2>
+                <div class="active_athor">
+                    <span></span>
+                    <p id="user_email">Login: </p>
+                </div>
+            </div>
+
+            <div class="signout_button">
+                <a href="login.html">Sign Out</a>
+            </div>
+
+
+
+            <!--Tabs Dropdown-->
+            <ul id="dropdown_ul">
+                <li class="serch_popup_open" onmousedown="serch_popup_open();"><a href="#"><i
+                            class="fas fa-search"></i></a></li>
+                <li class="dropdown" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <a>
+                        <i class="fas fa-plus"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="new_account_open dropdown-item" onmousedown="new_account_open();">New Account ~
+                            START</a>
+                        <a class="input_popup_open dropdown-item" onmousedown="input_popup_open();">Input Entry ~
+                            ENTER</a>
+                        <a class="output_popup_open dropdown-item" onmousedown="output_popup_open();">Output Entry ~
+                            EXIT</a>
+                        <a class="bill_popup_open dropdown-item" onmousedown="bill_popup_open();">Expense</a>
+                    </div>
+                </li>
+                <li class="audit_log_open" onmousedown="audit_log_popup();"><a href="#"><i
+                            class="fas fa-history"></i></a></li>
+            </ul>
+            <!--End Tabs Dropdown-->
+
+        </div>
+    </section>
+    <!--SideTabs-->
+
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'dashborad')" id="defaultOpen">Dashboard</button>
+        <button class="tablinks" onclick="openCity(event, 'purchases')">Purchases</button>
+        <button class="tablinks" onclick="openCity(event, 'daily_weight')">Input Entry</button>
+        <button class="tablinks" onclick="openCity(event, 'exit_entires')">Output Entry</button>
+        <button class="tablinks" onclick="openCity(event, 'expense_entires')">Expenses</button>
+        <button class="tablinks" onclick="openCity(event, 'report_tab')">Reports</button>
+        <button class="tablinks" onclick="openCity(event, 'setting_tab')">Settings</button>
+    </div>
+    <!--DashboardTab-->
+    <div id="dashborad" class="tabcontent">
+        <div class="date_time">
+            <h3 class="title_dashboard">
+                Dashboard
+            </h3>
+            <div class="date_name float-right" style="margin-top: 100px;">
+                <h5 id="today"></h5>
+                <h6><b id="date"></b></h6>
+            </div>
+        </div>
+        <p style="margin-left: 42px;">Checkout your business details in a glympse</p>
+        <div class="dashboard_information">
+            <img src="img/dashboard.png" id="ologourl" alt="profile">
+            <div class="company_info" style="margin-top: 7px;">
+                <h4>Company Name</h4>
+                <h6>Address of the company here</h6>
+            </div>
+        </div>
+
+
+        <div class="balance_on_plant">
+            <h3>Rates Pending (ON SALE)</h3>
+            <div class="cases">
+                <a href="#"><b>5</b> Entries</a>
+            </div>
+        </div>
+        <div class="balance_plant">
+            <table class="balance_plant_table">
+                <tbody>
+                    <th>Tx.no</th>
+                    <th>Data</th>
+                    <th>Cases</th>
+                    <th>Party</th>
+                    <th>Driver Phone</th>
+                    <th>Rate Status</th>
+                    <th style="width: 7%;">Action</th>
+                </tbody>
+                <tbody id="balance_plant_table_tbody">
+                    <!-- <tr class="text-center warning no-result">
+                        <td colspan="9"> <img src="img/noresult.png" style="width:10%;margin-left: 7px;" /> &nbsp; <br>
+                            No Results</td>
+                        <br>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+    </div>
+    <!-- End DashboardTab-->
+
+
+    <!--Purchases Tab-->
+    <div id="purchases" class="tabcontent">
+
+        <div class="purchases">
+            <div class="purchases_title" style="padding: 4px;">
+                <h4 class="purchases_style">Purchases</h4>
+                <div class="purchases_buttons">
+                    <a style="background: #222;margin-left: -105%;" href="#" class="new_account_open dropdown-item"
+                        onmousedown="new_account_open()"> New Purchase Order</a>
+                    <a style="background: #216b24; margin-top: -25%;" href="#" class="new_account_open dropdown-item"
+                        onmousedown="new_account_open()"> New Purchase Entry</a>
+                </div>
+                <p>Record the purchases done here, weather that is a farm (hookha or tool) or goods from another dealer.
+                </p>
+            </div>
+
+            <div class="prograsing_bars">
+                <div class="prograsing_title">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-6" style="max-width: 49%;">
+                                <h4 style="color: #bb8e08;font-size: 16px;">Total Purchases</h4>
+                                <div class="buyer_yellow" style="margin-right: -20px;">
+                                    <h4>₹ 175000</h4>
+                                    <img src="img/boxyellow.png"
+                                        style="width: 11%;float: right;margin-right: 18px;margin-top: -37px;opacity: 0.4;filter: brightness(72%);">
+                                    <p>12 Transactions</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6" style="max-width: 50%;">
+                                <h4 style="color: #117f16;font-size: 16px;">Pending Purchases</h4>
+                                <div class="buyer_green" style="margin-right: -65px;">
+                                    <h4>40000 kg</h4>
+                                    <img src="img/boxgreen.png"
+                                        style="width: 10%;float: right;margin-right: 18px;margin-top: -37px;opacity: 0.4;filter: brightness(61%);">
+                                    <p>2 Transactions Pending</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <div>
+                <a class="dropdown dropdown-toggle " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Filters
+                </a>
+                <div class="dropdown-menu custom_batch" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">According to Latest First</a>
+                    <a class="dropdown-item" href="#">According to Party</a>
+                    <a class="dropdown-item" href="#">According to Last Date</a>
+                    <a class="dropdown-item" href="#">According to Type</a>
+                    <a class="dropdown-item" href="#">According to Agent</a>
+                </div>
+
+                <a class="single_input">
+                    <input type="text" placeholder="Search data here" value=""
+                        style="margin-left: 5px;width: 77%;height: 47px;border-radius: 6px;">
+                </a>
+
+            </div>
+            <!--End Tabs Dropdown-->
+
+            <!--Print export and settings Icon Here-->
+            <div class="printer_icon">
+                <img class="print_previewer_open" onmousedown="print_previewer_popup('suplier_table');" href="#"
+                    src="img/printer.png" alt="placeholder+image">
+            </div>
+            <div class="export_icon">
+                <a onclick="genPDF('daily_weights');" href="#"><img src="img/share.png" alt="placeholder+image"> </a>
+            </div>
+            <!--Setting icon-->
+
+            <div class="settings_icon">
+                <div class="setting_box">
+                    <h5>Columns</h5>
+
+                    <label class="checkbox_container setting_checkmark ">Tx.no
+                        <input type="checkbox" checked="checked" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark clicked">Date
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Party
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Cases
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">(F)
+                        <input type="checkbox" value="false">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">(H)
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark unchecked">Product
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Gross Amount
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Expenses
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Net Amount
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <a onclick="setting_box_show()" href="#"><img src="img/settings.png" alt="placeholder+image"> </a>
+            </div>
+
+            <!--Purchases Table-->
+
+            <table id="purchases_table" data-toggle="table" data-search="true" class="sticky-table  table_search_input">
+                <tbody>
+                    <tr>
+                        <th data-sortable="true">Tx.no</th>
+                        <th data-sortable="true">Purch. Date</th>
+                        <th data-sortable="true">Days Left</th>
+                        <th data-sortable="true">Type</th>
+                        <th data-sortable="true">Owner</th>
+                        <th data-sortable="true">Area</th>
+                        <th data-sortable="true">Rate(T)</th>
+                        <th data-sortable="true">Amount(H)</th>
+                        <th data-sortable="true">Agent</th>
+                        <th style="width: 7%;">Action</th>
+                    </tr>
+                </tbody>
+                <tbody id="purchases_table_tbody">
+                    <!-- <tr class="text-center warning no-result">
+                        <td colspan="9"> <img src="img/noresult.png" style="width:10%;margin-left: 7px;" /> &nbsp; <br>
+                            No Results</td>
+                        <br>
+                    </tr> -->
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th colspan="4">Grand Total</th>
+                        <th>170 Cases</th>
+                        <th colspan="2"></th>
+                        <th>210000</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </tfoot>
+
+            </table>
+
+
+        </div>
+    </div>
+    <!--End Purchases Tab-->
+
+
+
+
+
+    <!--Daily Weight-->
+    <div id="daily_weight" class="tabcontent">
+
+        <div class="daily_weight_box">
+            <div class="daily_weight_title">
+                <h4 class="daily_weight_style">Input Entry</h4>
+                <div class="purchases_buttons">
+                    <a style="background: #216b24;" href="#" class="input_popup_open dropdown-item"
+                        onmousedown="input_popup_open()">New Weight Entry</a>
+                </div>
+                <p>Record Daily weight purchi recieved everytime.</p>
+            </div>
+
+
+            <div class="prograsing_bars">
+                <div class="prograsing_title">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4 style="color: #8e6b02;font-size: 16px;">Weight Today</h4>
+                                <div class="buyer_yellow">
+                                    <h4>22000 kg</h4>
+                                    <img src="img/weightyellow.png"
+                                        style="width: 17%;float: right;margin-right: 18px;margin-top: -10px;opacity: 0.7;">
+                                    <p>10 Mar 2019</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4 style="color: #3e8140e3;font-size: 16px;">Total Weight</h4>
+                                <div class="buyer_green" style="margin-right: -20px;">
+                                    <h4>1009500 kg</h4>
+                                    <img src="img/weightgreen.png"
+                                        style="width: 17%;float: right;margin-right: 18px;margin-top: -10px;opacity: 0.4;filter: brightness(72%);">
+                                    <p>121 Transactions</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h4 style="color: #f44336;font-size: 16px;">Notice</h4>
+                                <div class="buyer_red" style="margin-right: -65px;">
+                                    <h4> Weight Mismatch</h4>
+                                    <img src="img/invoicered.png"
+                                        style="width: 15%;float: right;margin-right: 18px;margin-top: -10px;opacity: 0.4;filter: brightness(61%);">
+                                    <p>4 Transactions</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div>
+                <a class="dropdown dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Filters
+                </a>
+                <div class="dropdown-menu custom_batch" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Party based filer</a>
+                    <a class="dropdown-item" href="#">Date based filter Ascending</a>
+                    <a class="dropdown-item" href="#">Area Based Filter</a>
+                </div>
+
+                <a class="single_input">
+                    <input type="text" placeholder="Search data here" value=""
+                        style="margin-left: 5px;width: 77%;height: 47px;border-radius: 6px;">
+                </a>
+
+            </div>
+            <!--End Tabs Dropdown-->
+
+            <!--Print export and settings Icon Here-->
+            <div class="printer_icon">
+                <img class="print_previewer_open" onmousedown="print_previewer_popup('suplier_table');" href="#"
+                    src="img/printer.png" alt="placeholder+image">
+            </div>
+
+            <div class="export_icon">
+                <a onclick="genPDF('daily_weights');" href="#"><img src="img/share.png" alt="placeholder+image"> </a>
+            </div>
+            <!--Setting icon-->
+
+            <div class="settings_icon">
+                <div class="setting_box">
+                    <h5>Columns</h5>
+
+                    <label class="checkbox_container setting_checkmark ">Tx.no
+                        <input type="checkbox" checked="checked" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark clicked">Date
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Party
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Cases
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">(F)
+                        <input type="checkbox" value="false">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">(H)
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark unchecked">Product
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Gross Amount
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Expenses
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Net Amount
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <a onclick="setting_box_show()" href="#"><img src="img/settings.png" alt="placeholder+image"> </a>
+            </div>
+
+            <table id="daily_weights" class="daily_weight">
+                <tbody>
+                    <tr>
+                        <th>Tx.no</th>
+                        <th>Date</th>
+                        <th>Party</th>
+                        <th>Location</th>
+                        <th>Weight(kg)</th>
+                        <th>Crates</th>
+                        <th style="width: 7%;">Action</th>
+                    </tr>
+                </tbody>
+                <tbody id="daily_weights_tbody">
+                    <!-- <tr class="text-center warning no-result">
+                        <td colspan="9"> <img src="img/noresult.png" style="width:10%;margin-left: 7px;" /> &nbsp; <br>
+                            No Results</td>
+                        <br>
+                    </tr> -->
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th colspan="4">Grand Total</th>
+                        <th>2034</th>
+                        <th>144</th>
+                        <th colspan="1"></th>
+                    </tr>
+                </tfoot>
+
+            </table>
+
+        </div>
+
+    </div>
+    <!--End Daily Weight-->
+    <!--Exit Entries-->
+    <div id="exit_entires" class="tabcontent">
+
+        <div class="daily_weight_box box-1">
+            <div class="daily_weight_title">
+                <h4 class="h4_exit_entry">Output Entry</h4>
+                <div class="purchases_buttons">
+                    <a style="background: #216b24;" href="#" class="output_popup_open dropdown-item"
+                        onmousedown="output_popup_open()">New Output Entry</a>
+                </div>
+                <p>When the goods leave for sales, record the output entry.</p>
+            </div>
+
+
+            <div class="prograsing_bars">
+                <div class="prograsing_title">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                <h4 style="color: #3e8140e3;font-size: 16px;">Total Shipped</h4>
+                                <div class="buyer_green" style="margin-right: -20px;">
+                                    <h4>₹ 17555</h4>
+                                    <img src="img/shipgreen.png"
+                                        style="width: 17%;float: right;margin-right: 18px;margin-top: -10px;opacity: 0.4;filter: brightness(72%);">
+                                    <p>12 Shipments</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4 style="color: #8e6b02;font-size: 16px;">On-Order</h4>
+                                <div class="buyer_yellow">
+                                    <h4> ₹ 222222</h4>
+                                    <img src="img/shipyellow.png"
+                                        style="width: 17%;float: right;margin-right: 18px;margin-top: -10px;opacity: 0.7;">
+                                    <p>22 Shipments</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4 style="color: #f44336;font-size: 16px;">On Sale</h4>
+                                <div class="buyer_red" style="margin-right: -65px;">
+                                    <h4>₹ 444444 </h4>
+                                    <img src="img/shipred.png"
+                                        style="width: 15%;float: right;margin-right: 18px;margin-top: -10px;opacity: 0.4;filter: brightness(61%);">
+                                    <p>10 Shipments</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div>
+                <a class="dropdown dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Filters
+                </a>
+                <div class="dropdown-menu custom_batch" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">All Entries</a>
+                    <a class="dropdown-item" href="#">On Order Entries</a>
+                    <a class="dropdown-item" href="#">On Sale Entries</a>
+                </div>
+
+                <a class="single_input">
+                    <input type="text" placeholder="Search data here" value=""
+                        style="margin-left: 5px;width: 77%;height: 47px;border-radius: 6px;">
+                </a>
+
+            </div>
+            <!--Print export and settings Icon Here-->
+            <div class="printer_icon">
+                <img class="print_previewer_open" onmousedown="print_previewer_popup('suplier_table');" href="#"
+                    src="img/printer.png" alt="placeholder+image">
+            </div>
+            <div class="export_icon">
+                <a onclick="genPDF('daily_weights');" href="#"><img src="img/share.png" alt="placeholder+image"> </a>
+            </div>
+
+
+            <!--Setting icon-->
+
+            <div class="settings_icon">
+                <div class="setting_box">
+                    <h5>Columns</h5>
+
+                    <label class="checkbox_container setting_checkmark ">Tx.no
+                        <input type="checkbox" checked="checked" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark clicked">Date
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Party
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Cases
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">(F)
+                        <input type="checkbox" value="false">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">(H)
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark unchecked">Product
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Gross Amount
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Expenses
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Net Amount
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <a onclick="setting_box_show()" href="#"><img src="img/settings.png" alt="placeholder+image"> </a>
+            </div>
+
+            <!--End Tabs Dropdown-->
+
+            <table id="exit_entires_table" class="daily_weight">
+                <tbody>
+                    <tr>
+                        <th>Invoice</th>
+                        <th>Date</th>
+                        <th>Cases</th>
+                        <th>Party</th>
+                        <th>Location</th>
+                        <th>Exit Type</th>
+                        <th>Net Amount ₹</th>
+                        <th style="width: 7%;">Action</th>
+                    </tr>
+                </tbody>
+                <tbody id="outputentrytbody">
+                    <!-- <tr class="text-center warning no-result">
+                        <td colspan="9"> <img src="img/noresult.png" style="width:10%;margin-left: 7px;" /> &nbsp; <br>
+                            No Results</td>
+                        <br>
+                    </tr> -->
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th colspan="2">Grand Total</th>
+                        <th>170 Cases</th>
+                        <th colspan="3"></th>
+                        <th>210000</th>
+                        <th colspan="1"></th>
+                    </tr>
+                </tfoot>
+
+            </table>
+        </div>
+
+    </div>
+    <!-- End Exit Entries-->
+
+
+    <!--Start of Bill Entries-->
+    <div id="expense_entires" class="tabcontent">
+
+        <div class="daily_bill_box box-1">
+            <div class="daily_bill_title">
+                <h4 class="h4_exit_entry">Expenses</h4>
+                <div class="purchases_buttons">
+                    <a style="background: #216b24;" href="#" class="bill_popup_open dropdown-item"
+                        onmousedown="bill_popup_open()">New Bill</a>
+                </div>
+                <p>Record petty expenses using this popup.</p>
+            </div>
+
+            <div class="prograsing_bars">
+                <div class="prograsing_title">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4 style="color: #8e6b02;font-size: 16px;">Due Amounts</h4>
+                                <div class="buyer_yellow">
+                                    <h4> ₹ 22000</h4>
+                                    <img src="img/billyellow.png"
+                                        style="width: 17%;float: right;margin-right: 18px;margin-top: -10px;opacity: 0.7;">
+                                    <p>2 Due</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4 style="color: #3e8140e3;font-size: 16px;">Paid</h4>
+                                <div class="buyer_green" style="margin-right: -20px;">
+                                    <h4>₹ 7500</h4>
+                                    <img src="img/billgreen.png"
+                                        style="width: 17%;float: right;margin-right: 18px;margin-top: -10px;opacity: 0.4;filter: brightness(72%);">
+                                    <p>12 Paid</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h4 style="color: #f44336;font-size: 16px;">Priorty Payments Today</h4>
+                                <div class="buyer_red" style="margin-right: -65px;">
+                                    <h4>₹ 40000 </h4>
+                                    <img src="img/billred.png"
+                                        style="width: 15%;float: right;margin-right: 18px;margin-top: -10px;opacity: 0.4;filter: brightness(61%);">
+                                    <p>2 Urgent Reminders</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+
+            <div>
+                <a class="dropdown dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Filters
+                </a>
+                <div class="dropdown-menu custom_batch" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">All Entries</a>
+                    <a class="dropdown-item" href="#">On Order Entries</a>
+                    <a class="dropdown-item" href="#">On Sale Entries</a>
+                </div>
+
+                <a class="single_input">
+                    <input type="text" placeholder="Search data here" value=""
+                        style="margin-left: 5px;width: 77%;height: 47px;border-radius: 6px;">
+                </a>
+
+            </div>
+
+            <!--Print export and settings Icon Here-->
+            <div class="printer_icon">
+                <img class="print_previewer_open" onmousedown="print_previewer_popup('suplier_table');" href="#"
+                    src="img/printer.png" alt="placeholder+image">
+            </div>
+            <div class="export_icon">
+                <a onclick="genPDF('daily_weights');" href="#"><img src="img/share.png" alt="placeholder+image"> </a>
+            </div>
+
+
+            <!--Setting icon-->
+
+            <div class="settings_icon">
+                <div class="setting_box">
+                    <h5>Columns</h5>
+
+                    <label class="checkbox_container setting_checkmark ">Tx.no
+                        <input type="checkbox" checked="checked" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark clicked">Date
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Party
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Cases
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">(F)
+                        <input type="checkbox" value="false">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">(H)
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark unchecked">Product
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Gross Amount
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Expenses
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox_container setting_checkmark">Net Amount
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <a onclick="setting_box_show()" href="#"><img src="img/settings.png" alt="placeholder+image"> </a>
+            </div>
+
+
+            <!--End Tabs Dropdown-->
+
+            <table id="exit_entires_table" class="daily_bill">
+                <tbody>
+                    <tr>
+                        <th style="width: 10%;">Tx. no.</th>
+                        <th>Date</th>
+                        <th style="width: 14%;">Expense Account</th>
+                        <th style="width: 10%;">No. Labour</th>
+                        <th>Party</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th style="width: 7%;">Action</th>
+                    </tr>
+                </tbody>
+                <tbody id="expenseentrytbody">
+                    <!-- <tr class="text-center warning no-result">
+                        <td colspan="9"> <img src="img/noresult.png" style="width:10%;margin-left: 7px;" /> &nbsp; <br>
+                            No Results</td>
+                        <br>
+                    </tr> -->
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th colspan="2">Grand Total</th>
+                        <th>170 Cases</th>
+                        <th colspan="3"></th>
+                        <th>210000</th>
+                        <th colspan="1"></th>
+                    </tr>
+                </tfoot>
+
+            </table>
+        </div>
+
+    </div>
+    <!-- End of Bill Entries-->
+
+
+
+
+
+    <!--ReportTab-->
+    <div id="report_tab" class="tabcontent">
+
+        <div class="report_header">
+            <div class="report_header_left">
+                <h2>Report</h2>
+                <p>We have created reports for your need to view your business processes in a snapshot.</p>
+            </div>
+            <div class="report_header_right">
+                <a href="#">Request Custom Reports</a>
+            </div>
+
+        </div>
+        <div class="report_wrapper">
+            <div class="report_card">
+                <div class="report_card_image">
+                    <a href="#balance_sheet_open">
+                        <img src="img/balancesheet.png" alt="" style="width: 100%;" />
+                    </a>
+                </div>
+                <h4>Input vs Output (Weight Management)</h4>
+                <p>We have created reports for your need to view your business processes in a snapshot.</p>
+            </div>
+
+
+            <div class="report_card">
+                <div class="report_card_image">
+                    <a href="#balance_sheet_open">
+                        <img src="" alt="" />
+                    </a>
+                </div>
+                <h4>Profitability</h4>
+                <p>We have created reports for your need to view your business processes in a snapshot.</p>
+            </div>
+            <div class="report_card">
+                <div class="report_card_image"><a href="#balance_sheet_open">
+                        <img src="" alt="" />
+                    </a>
+                </div>
+
+                <h4>Balance Weight Management</h4>
+                <p>We have created reports for your need to view your business processes in a snapshot.</p>
+            </div>
+        </div>
+
+        <div class="balance_sheet_report_box">
+            <a class="back_button" href="#back_to_report_list"> ⇠ Back to Reports</a>
+
+            <br><br>
+            <h4>Balance Sheet</h4>
+            <br>
+            <div class="report_boxes">
+                <h5>
+                    <ul>Report Period</ul>
+                </h5>
+                <div class="report_customize_buttons">
+                    <a href="#">Save Customization</a>
+                    <a href="#">Run Report</a>
+                </div>
+            </div>
+            <div class="report_inputs">
+
+                <li>
+                    <div class="select-toggle-icon">
+                        <select>
+                            <option>This year-to-date</option>
+                            <option>This year-to-date</option>
+                            <option>This year-to-date</option>
+                        </select>
+                    </div>
+                </li>
+                &nbsp;
+                <li><input type="date" value="2018-10-19" /></li>
+                &nbsp; to &nbsp;
+                <li><input type="date" value="2018-10-19" /></li>
+            </div>
+            <div class="frame_query_select">
+                <table class="">
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="select-toggle-icon query_select">
+                                    <label>Display Columns by</label>
+                                    <select>
+                                        <option>Total Only</option>
+                                        <option>Total Only</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="select-toggle-icon query_select">
+                                    <label>Show non-zero or active only</label>
+                                    <select>
+                                        <option>Active rows/active columns</option>
+                                        <option>Active rows/active columns</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="select-toggle-icon query_select">
+                                    <label>Compare another period</label>
+                                    <select>
+                                        <option>Select period</option>
+                                        <option>Select period</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rounded_mark">
+                                    <label>Accounting method</label>
+                                    <li><input type="radio" value="Cash" checked> &nbsp; <b>Cash</b> &nbsp; <input
+                                            type="radio" value="Accrual"> &nbsp; <b>Accrual</b></li>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="balance_report_sheet_frame">
+                <div class="collapse_btn">
+                    <ul class="left_side_collapse">
+                        <li><a href="#" data-toggle="collapse" data-target="#frame_collapse_box">
+                                Collapse</a></li>
+                        <li>
+                            <div class="dropdowns">
+                                <a class="sort_dropdown dropdown-toggle " id="dropdownMenuButton" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Sort
+                                </a>
+                                <div class="dropdown-menu custom_batch2" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Sort By Des</a>
+                                    <a class="dropdown-item" href="#">Sort By Des</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="right_side_collapse">
+                        <li><i class="far fa-envelope"></i></li>&nbsp;
+                        <li><i class="fas fa-print"></i></li>&nbsp;
+                        <li>
+                            <div class="dropdowns">
+                                <a class="share_dropdown dropdown-toggle " id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-share-square"></i>
+                                </a>
+                                <div class="dropdown-menu custom_batch2" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Sort By Des</a>
+                                    <a class="dropdown-item" href="#">Sort By Des</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><i class="fas fa-cog"></i></li>
+                    </ul>
+                </div>
+                <div id="frame_collapse_box" class="collapse show">
+
+                    <div class="frame_header_content text-center">
+                        <h5>Company Name</h5>
+                        <b>BALANCE SHEET</b>
+                        <h6 style="opacity: 0.8;font-size: 13px;margin-top: 3px;">as of 8th February 2019</h6>
+
+                    </div>
+
+                    <h4 class="frame_total">TOTAL</h4>
+
+                    <ul id="myUL">
+                        <li><span class="caret caret-down">ASSETS</span>
+                            <ul class="nested active">
+                                <li><span class="caret ml-15 caret-down">Current Assets</span>
+
+                                    <ul class="nested active">
+                                        <li><span class="caret ml-30 caret-down">Bank Account</span>
+                                            <ul class="nested active">
+                                                <li>
+                                                    <div class="row">
+                                                        <div class="col-lg-4 ">
+                                                            <span class="ml-40">Checking</span>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <input class="frame_input" onkeyup="f2();" type="text"
+                                                                value="₹ 1200" id="num1" class="amount" />
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="row">
+                                                        <div class="col-lg-2">
+                                                            <span class="ml-40">Savings </span>
+                                                        </div>
+                                                        <div class="col-lg-10">
+                                                            <input class="frame_input" onkeyup="f2();" type="text"
+                                                                value="₹ 1200" id="num2" />
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <hr class="frame_total_hr">
+                                                    <div class="row">
+                                                        <div class="col-lg-5">
+                                                            <span class="ml-40"><b>Total Bank Accounts</b></span>
+                                                        </div>
+                                                        <div class="col-lg-7">
+                                                            <input class="frame_input" type="text" value="₹ 2400"
+                                                                id="total_bank_acount" />
+                                                        </div>
+                                                    </div>
+
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><span class="caret caret-down ml-15">Accounts Receivable</span>
+                                            <ul class="nested active ">
+                                                <li>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <span class="ml-40">Accounts Receivable</span>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <input class="frame_input" onkeyup="f2();" type="text"
+                                                                value="₹ 2400" placeholder="" id="num3" />
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <hr class="frame_total_hr">
+                                                    <div class="row">
+                                                        <div class="col-lg-5">
+                                                            <span class="ml-40"><b>Total Accounts Receivable</b></span>
+                                                        </div>
+                                                        <div class="col-lg-7">
+                                                            <input class="frame_input" type="text" value="₹ 4800"
+                                                                id="total_receivable_amount" />
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li><span class="ml-15 caret">Other Current Assets</span>
+                                            <ul class="nested">
+                                                <li>Inventory Assets</li>
+                                                <li>Un-Deposited Funds</li>
+                                            </ul>
+                                        </li>
+
+
+                                        <h4 class="frame_total_right">TOTAL CURRENT ASSETS &nbsp; &nbsp; ₹ 4800</h4>
+
+                                    </ul>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                    <ul id="myUL">
+                        <li><span class="caret caret-down">ASSETS</span>
+                            <ul class="nested active">
+                                <li><span class="caret ml-15 caret-down">Current Assets</span>
+
+                                    <ul class="nested active">
+                                        <li><span class="caret ml-30 caret-down">Bank Account</span>
+                                            <ul class="nested active">
+                                                <li>
+                                                    <div class="row">
+                                                        <div class="col-lg-4 ">
+                                                            <span class="ml-40">Checking</span>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <input class="frame_input" onkeyup="f2();" type="text"
+                                                                value="₹ 1200" id="num1" class="amount" />
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="row">
+                                                        <div class="col-lg-2">
+                                                            <span class="ml-40">Savings </span>
+                                                        </div>
+                                                        <div class="col-lg-10">
+                                                            <input class="frame_input" onkeyup="f2();" type="text"
+                                                                value="₹ 1200" id="num2" />
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <hr class="frame_total_hr">
+                                                    <div class="row">
+                                                        <div class="col-lg-5">
+                                                            <span class="ml-40"><b>Total Bank Accounts</b></span>
+                                                        </div>
+                                                        <div class="col-lg-7">
+                                                            <input class="frame_input" type="text" value="₹ 2400"
+                                                                id="total_bank_acount" />
+                                                        </div>
+                                                    </div>
+
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><span class="caret caret-down ml-15">Accounts Receivable</span>
+                                            <ul class="nested active ">
+                                                <li>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <span class="ml-40">Accounts Receivable</span>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <input class="frame_input" onkeyup="f2();" type="text"
+                                                                value="₹ 2400" placeholder="" id="num3" />
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <hr class="frame_total_hr">
+                                                    <div class="row">
+                                                        <div class="col-lg-5">
+                                                            <span class="ml-40"><b>Total Accounts Receivable</b></span>
+                                                        </div>
+                                                        <div class="col-lg-7">
+                                                            <input class="frame_input" type="text" value="₹ 4800"
+                                                                id="total_receivable_amount" />
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li><span class="ml-15 caret">Other Current Assets</span>
+                                            <ul class="nested">
+                                                <li>Inventory Assets</li>
+                                                <li>Un-Deposited Funds</li>
+                                            </ul>
+                                        </li>
+
+
+                                        <h4 class="frame_total_right"> TOTAL LIABILITIES AND EQUITY &nbsp; &nbsp;₹ 4800
+                                        </h4>
+
+                                    </ul>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <!--End ReportTab-->
+
+    <!--SettingTab-->
+    <div id="setting_tab" class="tabcontent">
+
+        <div class="setting_content">
+            <div class="setting_title">
+                <h4>Settings</h4>
+                <p>You can customize the software tow work with any of these preferences.</p>
+            </div>
+
+            <div class="setting_type">
+                <h4 style="font-size: 17px;">Company Settings</h4>
+                <p>Select premade setting to get started with your business right away</p>
+
+                <div class="single_input">
+                    <label>Company Name</label>
+                    <input type="text" id="icompanyname" placeholder="Enter your business name" value=""
+                        style="width: 50%;">
+                </div>
+
+                <div class="single_input">
+                    <label>Company Address</label>
+                    <input type="text" id="icompanyaddress" placeholder="Enter your company addres" value=""
+                        style="width: 50%;">
+                </div>
+
+                <div class="single_input">
+                    <label>Company Logo URL</label>
+                    <input type="text" id="ilogourl" placeholder="Paste the image url" value="" style="width: 50%;">
+                </div>
+
+                <div class="contact_button">
+                    <button onclick="savecompanydata()">Save Details</button>
+                </div>
+
+                <br><br>
+                <div style="border-top: 1px solid #d2d2d2;border-top: 1px solid #d0d0d0;"><br><br>
+                    <h4 style="font-size: 17px;">Change Password</h4>
+                    <p>Enter the passwords below and hit save</p>
+
+                    <div class="single_input">
+                        <label>Company Name</label>
+                        <input type="text" id="ipassword" placeholder="Enter your business name" value=""
+                            style="width: 50%;">
+                    </div>
+
+                    <div class="single_input">
+                        <label>Company Address</label>
+                        <input type="text" id="iretypepassword" placeholder="Enter your company addres" value=""
+                            style="width: 50%;">
+                    </div>
+
+
+                    <div class="contact_button">
+                        <button onclick="savepassword()">Save Details</button>
+                    </div><br><br>
+
+                </div>
+
+
+                <br><br>
+                <div style="border-bottom: 1px solid #d2d2d2;border-top: 1px solid #d0d0d0;"><br><br>
+                    <h4 style="font-size: 17px;">Add User</h4>
+                    <p>Add users to with view only rights</p>
+
+                    <div class="single_input">
+                        <label>Email</label>
+                        <input type="text" id="" placeholder="Enter email address" value="" style="width: 50%;">
+                    </div>
+
+                    <div class="single_input">
+                        <label>Password</label>
+                        <input type="text" id="" placeholder="Enter password" value="" style="width: 50%;">
+                    </div>
+
+
+                    <div class="contact_button">
+                        <button onclick="">Add User</button>
+                    </div><br><br>
+
+                </div>
+
+
+
+
+
+                <div class="setting_type">
+                    <h4 style="font-size: 17px;">Produce Type:</h4>
+                    <p>Select premade setting to get started with your business right away</p>
+                    <div class="setting_type_select">
+                        <select id="setting_select">
+                            <option>Orange & Citruses</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="contact_qn">
+                    <h4 style="font-size: 17px;">Don't have your settings in it?</h4>
+                    <span>Contact us if you did not find your produce type or need a settings change</span>
+                </div>
+                <div class="contact_button">
+                    <a href="#">Contact Us</a>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!--EndSettingTab-->
+
+
+
+
+        <script>
+            var userEmail = localStorage.getItem("user-email");
+            var email = document.getElementById("user_email");
+            userEmail ? email.innerHTML += userEmail : email.innerHTML += "no email";
+
+            function openCity(evt, cityName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+                switch(cityName) {
+                    case "dashborad" : {
+                        getDashboradData();
+                        break;
+                    }
+                    case "purchases" : {
+                        getPurchasesData();
+                        break;
+                    }
+                    case "daily_weight" : {
+                        console.log("input entry");
+                        getInputEntry();
+                        break;
+                    }
+                    case "exit_entires" : {
+                        getOutputEntry();
+                        break;
+                    }
+                    case "expense_entires" : {
+                        getExpenses();
+                        break;
+                    }
+                    default : console.log("No Match Found");
+                }
+            }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+
+            /*OutPut Cancel Button*/
+
+            function cencelButton() {
+                var box = document.getElementById('output_popup');
+                $("#cencel_btn").click(function () {
+                    box.style.display = "none";
+                    $("#overlay").css("display", "none");
+                });
+            }
+        /*OutPut Cancel Button*/
+        </script>
+
+
+                                <!-- FIREBASE CONFIGURATION  -->
+        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+        <!-- <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBBn3jTXC7W6shgDKxHD3bk_yJ4XDJql9k",
+            authDomain: "datarecoder1.firebaseapp.com",
+            databaseURL: "https://datarecoder1.firebaseio.com",
+            projectId: "datarecoder1",
+            storageBucket: "datarecoder1.appspot.com",
+            messagingSenderId: "457026247460"
+        };
+        firebase.initializeApp(config);
+        </script> -->
+
+
+        <!-- All js here -->
+
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="js/vendor/jquery-3.2.1.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="js/jspdf.min.js"></script>
+        <script src="js/table_dropdown_filter.js"></script>
+        <script src="js/csv_export.js"></script>
+        <script src="js/jspdf.plugin.autotable.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/upload_data.js"></script>
+        <script src="js/getDataFromFirebase.js"></script>
+
+        <script src="js/searchJavaScript.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body style="background-image: url(./img/background.jpg);">
+  <div class="login_container">
+    <div class="login_content">
+      <div class="login_title">
+        <img src="img/logo.png" alt="placeholder+image">
+        <p>Simple text like above</p>
+      </div>
+      <div class="login_section">
+        <h4>Login & Register</h4>
+        <p>Login if you already have an account registered or Register your account with us.</p>
+
+        <input type='checkbox' id='form-switch'>
+        <form id='login-form' method='post'>
+          <label style="float: left;">Email</label>
+          <input style="padding: 10px;width: 100%;" type="email" name="username" id="user-email" placeholder="Email" required>
+          <label style="float: left;">Password</label>
+          <input style="padding: 10px;width: 100%;" type="password" name="password" id="user-pwd" placeholder="Password" required>
+          <button type='button' onClick="loginCustomer()" name="login" id="buttonl">Login</button>
+          <p style="margin-bottom: 4px;color: #222;font-weight: 600;">Are you new ?</p>
+          <label for='form-switch'><span><b style="color: #097cd8;">REGISTER</b></span></label>
+        </form>
+        <div id='register-form'>
+          <label style="float: left;">Full Name</label>
+          <input style="padding: 10px;width: 100%;" id="rename" type="text" placeholder="Full Name" required>
+          <label style="float: left;">Business Name</label>
+          <input style="padding: 10px;width: 100%;" type="text" id="rebname" placeholder="Full Name" required>
+          <label style="float: left;">Email</label>
+          <input style="padding: 10px;width: 100%;" type="email" id="remail" placeholder="Email" required>
+          <label style="float: left;">Password</label>
+          <input style="padding: 10px;width: 100%;" type="password" id="repassword" placeholder="Password" required>
+          <label style="float: left;">Confirm Password</label>
+          <input style="padding: 10px;width: 100%;" type="password" id="repassword1" placeholder="Re Password" required>
+
+          <button onclick="createcustomer()" id="buttonr">Register</button>
+
+          <p style="margin-bottom: 4px;color: #222;font-weight: 600;">Already a member ?</p>
+
+          <label for='form-switch'><span><b style="color: #097cd8;">SIGN IN</b></span></label>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+
+  <script src="js/vendor/jquery-3.2.1.slim.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+      apiKey: "AIzaSyBBn3jTXC7W6shgDKxHD3bk_yJ4XDJql9k",
+      authDomain: "datarecoder1.firebaseapp.com",
+      databaseURL: "https://datarecoder1.firebaseio.com",
+      projectId: "datarecoder1",
+      storageBucket: "datarecoder1.appspot.com",
+      messagingSenderId: "457026247460"
+  };
+  firebase.initializeApp(config);
+  
+    var db = firebase.firestore();
+
+    function createcustomer() {
+      var name = document.getElementById("rename").value
+      var bname = document.getElementById("rebname").value
+      var email = document.getElementById("remail").value
+      var password = document.getElementById('repassword').value
+      var password1 = document.getElementById("repassword1").value
+      if (password != password1) {
+        return
+      }
+      $('#buttonr').html('Please wait')
+      $('#buttonr').attr('disabled', true)
+
+      var arr = ["newcustomer", name, bname, email, password]
+
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(function (res) {
+          console.log('res =>', res.user.uid);
+          db.collection('users').doc(res.user.uid).set({ name, bname, email })
+            .then(() => {
+              console.log('Added in db');
+              alert('Registered Successfully!');
+              window.location.href="login.html";
+            })
+            .catch((e) => {
+              console.log('error Adding in db');
+            })
+        })
+        .catch(function (error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorMessage);
+        });
+    }
+
+    function loginCustomer() {
+      var email = document.getElementById("user-email").value;
+      var password = document.getElementById("user-pwd").value;
+      firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((res) => {
+          console.log(res);
+          console.log(res.user.uid);
+          localStorage.setItem("userId", res.user.uid);
+          localStorage.setItem("user-email",email);
+          window.location.href="index.html";
+      })
+      .catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorMessage);
+          // ...
+        });
+    }
+  </script>
+
+
+
+
+
+</body>
+
+</html>
